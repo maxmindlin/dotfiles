@@ -73,6 +73,8 @@ plugins=(git codenv)
 source $ZSH/oh-my-zsh.sh
 source ~/.bash_profile
 
+alias vim=nvim
+
 eval "$(starship init zsh)"
 
 # User configuration
