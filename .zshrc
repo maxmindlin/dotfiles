@@ -74,6 +74,7 @@ source $ZSH/oh-my-zsh.sh
 source ~/.bash_profile
 
 alias vim=nvim
+alias gph='git push -u origin HEAD'
 
 eval "$(starship init zsh)"
 

@@ -37,6 +37,9 @@ nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
+" Tab lengths by language
+autocmd FileType javascript,typescript setlocal shiftwidth=2 softtabstop=2 expandtab
+
 " Begin CoC config
 " TextEdit might fail if hidden is not set.
 set hidden
