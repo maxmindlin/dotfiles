@@ -6,7 +6,8 @@ call plug#begin('~/.vim/plugged')
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'cespare/vim-toml'
 Plug 'preservim/nerdtree'
-Plug 'faith/vim-go', { 'do': ':GoUpdateBinaries' }
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+Plug 'Yggdroot/indentLine'
 
 call plug#end()
 
@@ -20,6 +21,7 @@ let g:go_highlight_extra_types=1
 let g:go_highlight_operators=1
 
 set number
+set list
 
 map <C-n> :NERDTreeToggle<CR>
 no <C-j> <C-w>j| "switch below
