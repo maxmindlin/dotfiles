@@ -23,6 +23,8 @@ let g:go_highlight_operators=1
 set number
 set list
 
+highlight Pmenu ctermbg=Black ctermfg=White
+
 map <C-n> :NERDTreeToggle<CR>
 no <C-j> <C-w>j| "switch below
 no <C-k> <C-w>k| "switch above
