@@ -3,6 +3,7 @@
 " - Avoid using standard Vim directory names like 'plugin'
 call plug#begin('~/.vim/plugged')
 
+Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'cespare/vim-toml'
 Plug 'preservim/nerdtree'
@@ -22,6 +23,7 @@ let g:go_highlight_operators=1
 
 set number
 set list
+colorscheme dracula
 
 highlight Pmenu ctermbg=black ctermfg=White
 highlight PmenuSel ctermbg=Magenta ctermfg=White
