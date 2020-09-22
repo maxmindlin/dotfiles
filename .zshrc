@@ -78,6 +78,9 @@ alias gph='git push -u origin HEAD'
 
 eval "$(starship init zsh)"
 
+# Have fzf respect the .gitignore
+export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
+
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
@@ -103,3 +106,5 @@ eval "$(starship init zsh)"
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

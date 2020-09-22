@@ -47,6 +47,8 @@ nmap <silent> gr <Plug>(coc-references)
 " Tab lengths by language
 autocmd FileType javascript,typescript setlocal shiftwidth=2 softtabstop=2 expandtab
 
+autocmd VimEnter * NERDTree
+
 " Begin CoC config
 " TextEdit might fail if hidden is not set.
 set hidden
