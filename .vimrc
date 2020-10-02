@@ -29,6 +29,10 @@ set number
 set list
 colorscheme dracula
 
+" Make sure files paths are shown in editor
+set laststatus=2
+set statusline+=%F
+
 highlight Pmenu ctermbg=black ctermfg=White
 highlight PmenuSel ctermbg=Magenta ctermfg=White
 
