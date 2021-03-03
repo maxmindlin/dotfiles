@@ -8,6 +8,7 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'pangloss/vim-javascript'
 Plug 'dracula/vim', { 'as': 'dracula' }
+Plug 'liuchengxu/space-vim-dark'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'cespare/vim-toml'
 Plug 'preservim/nerdtree'
@@ -27,7 +28,8 @@ let g:go_highlight_operators=1
 
 set number
 set list
-colorscheme dracula
+colorscheme space-vim-dark
+set termguicolors
 
 highlight Pmenu ctermbg=black ctermfg=White
 highlight PmenuSel ctermbg=Magenta ctermfg=White
