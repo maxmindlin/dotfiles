@@ -12,3 +12,5 @@ symbol = " "
 [golang]
 symbol = "🏎💨 "
 
+[aws]
+disabled = true
