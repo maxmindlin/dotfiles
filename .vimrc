@@ -33,6 +33,7 @@ let g:gruvbox_italics=1
 let g:gruvbox_contrast_dark='hard'
 
 set number
+set relativenumber
 set list
 colorscheme gruvbox
 set termguicolors
