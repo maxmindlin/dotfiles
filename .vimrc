@@ -9,11 +9,13 @@ Plug 'junegunn/fzf.vim'
 Plug 'pangloss/vim-javascript'
 Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'liuchengxu/space-vim-dark'
+Plug 'morhetz/gruvbox'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'cespare/vim-toml'
 Plug 'preservim/nerdtree'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'Yggdroot/indentLine'
+Plug 'itchyny/lightline.vim'
 
 call plug#end()
 
@@ -26,9 +28,13 @@ let g:go_highlight_function_calls=1
 let g:go_highlight_extra_types=1
 let g:go_highlight_operators=1
 
+set background=dark
+let g:gruvbox_italics=1
+let g:gruvbox_contrast_dark='hard'
+
 set number
 set list
-colorscheme space-vim-dark
+colorscheme gruvbox
 set termguicolors
 
 highlight Pmenu ctermbg=black ctermfg=White
