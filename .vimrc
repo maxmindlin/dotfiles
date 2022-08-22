@@ -3,19 +3,28 @@
 " - Avoid using standard Vim directory names like 'plugin'
 call plug#begin('~/.vim/plugged')
 
+Plug 'kyazdani42/nvim-web-devicons' " optional, for file icons
+Plug 'kyazdani42/nvim-tree.lua'
+Plug 'nvim-treesitter/playground'
+Plug 'folke/twilight.nvim'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'voldikss/vim-floaterm'
 Plug 'ekalinin/Dockerfile.vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'pangloss/vim-javascript'
-Plug 'dracula/vim', { 'as': 'dracula' }
-Plug 'liuchengxu/space-vim-dark'
-Plug 'morhetz/gruvbox'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'cespare/vim-toml'
-Plug 'preservim/nerdtree'
+" Plug 'preservim/nerdtree'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'Yggdroot/indentLine'
 Plug 'itchyny/lightline.vim'
+
+" colorschemes
+Plug 'EdenEast/nightfox.nvim'
+Plug 'dracula/vim', { 'as': 'dracula' }
+Plug 'liuchengxu/space-vim-dark'
+Plug 'morhetz/gruvbox'
 
 call plug#end()
 
@@ -41,7 +50,8 @@ set termguicolors
 highlight Pmenu ctermbg=black ctermfg=White
 highlight PmenuSel ctermbg=Magenta ctermfg=White
 
-map <C-n> :NERDTreeToggle<CR>
+" map <C-n> :NERDTreeToggle<CR>
+map <C-n> :NvimTreeToggle<CR>
 no <C-j> <C-w>j| "switch below
 no <C-k> <C-w>k| "switch above
 no <C-l> <C-w>l| "switch right
@@ -210,3 +220,47 @@ nnoremap <silent><nowait> <space>j  :<C-u>CocNext<CR>
 nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list.
 nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
+
+inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+inoremap <silent><expr> <C-x><C-z> coc#pum#visible() ? coc#pum#stop() : "\<C-x>\<C-z>"
+" remap for complete to use tab and <cr>
+inoremap <silent><expr> <TAB>
+      \ coc#pum#visible() ? coc#pum#next(1):
+      \ <SID>check_back_space() ? "\<Tab>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
+inoremap <silent><expr> <c-space> coc#refresh()
+
+
+" tree sitter config
+lua <<EOF
+require'nvim-treesitter.configs'.setup {
+  ensure_installed = { "rust" },
+  ensure_installed = "maintained",
+  -- Automatically install missing parsers when entering buffer
+  auto_install = true,
+  highlight = {
+    enable = true,
+    additional_vim_regex_highlighting = false,
+  },
+  incremental_selection = {
+    enable = true,
+    keymaps = {
+      init_selection = "gnn",
+      node_incremental = "grn",
+      scope_incremental = "grc",
+      node_decremental = "grm",
+    },
+  }
+}
+EOF
+
+" twilight config
+lua << EOF
+  require("twilight").setup {
+  }
+EOF
+
+lua << EOF
+require("nvim-tree").setup {}
+EOF
